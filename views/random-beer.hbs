@@ -3,11 +3,16 @@
     </br>
     <strong>{{ randomBeer.name }}</strong>
     </br>
-    <strong>{{ randomBeer.description }}</strong>
+    <div>{{ randomBeer.description }}</div>
     </br>
-    <strong>{{ randomBeer.tagline }}</strong>
+    <div>{{ randomBeer.tagline }}</div>
     </br>
-    <strong>{{ randomBeer.food_pairing }}</strong>
+    <ul>
+        {{#each randomBeer.food_pairing}}
+            <li> {{this}} </li>
+        {{/each}}
+    </ul>
+    {{!-- <div>{{ randomBeer.food_pairing }}</div> --}}
     </br>
-    <strong>{{ randomBeer.brewers_tips }}</strong>
+    <div>{{ randomBeer.brewers_tips }}</div>
 </div>
