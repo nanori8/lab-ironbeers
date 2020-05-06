@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+// get all beers
 app.get('/beers', (request, response) => {
   punkAPI
   .getBeers()
@@ -35,7 +36,7 @@ app.get('/beers', (request, response) => {
     );
 });
 
-
+// get random beers
 app.get('/random-beer', (request, response) => {
   punkAPI
   .getRandom()
@@ -49,6 +50,23 @@ app.get('/random-beer', (request, response) => {
     response.send('There was an error processing your request.');}
     );
 });
+
+app.get('/:id', (request, response) => {
+  const id = request.params.id;
+  axios
+    .getBeer(id)
+    .then(result => {
+      const beer = result.data;
+      response.render('single', { beer });
+    })
+    .catch(error => {
+      console.log('There was an error loading response from api');
+      console.log(error);
+      response.send('There was an error processing your request.');
+    });
+});
+
+
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));
 

@@ -1,23 +1,7 @@
 <ul>
     <li>
-        <p>hello world </p>
         {{#each beersFromApi}}
-                {{> beerpartial  }}
+            {{> beerpartial  }}
         {{/each}}
     </li>
 </ul>
-
-{{!-- <ul>
-  {{#each beersFromApi}}
-    <li>
-      <a>
-        <div>
-            <img src="{{ image_url }}"/>
-            <strong>{{ name }}</strong>
-            <strong>{{ description }}</strong>
-            <strong>{{ tagline }}</strong>
-        </div>
-      </a>
-    </li>
-  {{/each}}
-</ul> --}}
