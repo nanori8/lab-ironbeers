@@ -1,18 +1,12 @@
 <div>
-    <img src="{{ randomBeer.image_url }}"/>
-    </br>
-    <strong>{{ randomBeer.name }}</strong>
-    </br>
-    <div>{{ randomBeer.description }}</div>
-    </br>
-    <div>{{ randomBeer.tagline }}</div>
-    </br>
+    {{> beerpartial randomBeer }}
     <ul>
+        <div> This beer goes well with: </div>
         {{#each randomBeer.food_pairing}}
             <li> {{this}} </li>
         {{/each}}
     </ul>
-    {{!-- <div>{{ randomBeer.food_pairing }}</div> --}}
+
     </br>
     <div>{{ randomBeer.brewers_tips }}</div>
 </div>
