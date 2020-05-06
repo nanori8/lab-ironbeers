@@ -30,6 +30,21 @@ app.get('/beers', (request, response) => {
     response.render('beers', { beersFromApi })}
   )
   .catch(error => {
+    // console.log(error);
+    response.send('There was an error processing your request.');}
+    );
+});
+
+
+app.get('/random-beer', (request, response) => {
+  punkAPI
+  .getRandom()
+  .then(responseFromAPI => {
+    let randomBeer = responseFromAPI[0];
+    console.log('Random beers: ', randomBeer )
+    response.render('random-beer', { randomBeer})}
+  )
+  .catch(error => {
     console.log(error);
     response.send('There was an error processing your request.');}
     );
